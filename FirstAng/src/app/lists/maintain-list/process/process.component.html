@@ -1,0 +1,12 @@
+<h1>Pick any elements.</h1>
+<form (ngSubmit)="onSubmit(f)" #f="ngForm">
+  <ul style="list-style-type: none">
+    <li *ngFor="let listItem of choice.listItems">
+      <input type="checkbox"
+             [id]="listItem.id"
+             [(ngModel)]="listItem.chosen"
+             [name]="listItem"/>{{listItem.externalIdentifier}}
+    </li>
+  </ul>
+  <input type="submit" value="Pick elements" />
+</form>

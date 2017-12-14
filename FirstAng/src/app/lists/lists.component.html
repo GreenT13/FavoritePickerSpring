@@ -1,0 +1,4 @@
+<h1>My lists (<a [routerLink]="['add']">Add</a>)</h1>
+<ul>
+  <li *ngFor="let list of lists"><a [routerLink]="[list.id]">{{ list.externalIdentifier }}</a> ({{ list.hasStartedAlgorithm }})</li>
+</ul>

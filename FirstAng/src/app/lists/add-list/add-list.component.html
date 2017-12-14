@@ -1,0 +1,11 @@
+<h1>Create a new list</h1>
+{{ message }}
+<form class="form-style-4" (ngSubmit)="onSubmit()">
+  <label>
+    <span>Name</span><input type="text" name="externalIdentifier" required="true" value="" [(ngModel)]="list.externalIdentifier" />
+  </label>
+  <label>
+    <span>Size choice list</span><input type="number" name="sizeChoiceList" required="true" [(ngModel)]="list.sizeChoiceList" />
+  </label>
+  <input type="submit" value="Create list" />
+</form>

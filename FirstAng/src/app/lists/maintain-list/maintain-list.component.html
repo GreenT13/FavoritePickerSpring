@@ -1,0 +1,5 @@
+<h1>{{ list.externalIdentifier }}</h1>
+<ul>
+	<li *ngFor="let listItem of listItems">{{ listItem.externalIdentifier }}</li>
+</ul>
+<a [routerLink]="['process']" style="color: #555;">Process list</a>

@@ -1,0 +1,23 @@
+Alles moet beginnen met "/api" om te onderscheiden van de frontend. Alle variabelen zijn verplicht.
+
+/api/logon-user (make some admin-only things?)
+get -> List of all logon users. (so we don't need login system but just click on a user to use that one).
+get (logonUserId) -> Get the logonUser info.
+put (logonUserId) -> update the user
+
+/api/list
+get (logonUserId) -> Get all the lists from the user
+post -> Add a new list
+put -> Update the list
+delete -> Delete the list
+
+/api/list-item
+get (listId) -> Get all the items on the list.
+get -> Get the specific list item.
+post -> Add a new item to the list
+put -> Update the list item.
+delete -> Delete the list-item.
+
+/api/algorithm
+get (listId) -> Get the next choice for the list.
+post -> Put the choice in the algorithm.

@@ -16,6 +16,8 @@ public class LogonUserEntity {
     private String name;
     @Basic
     private int maxNrOfLists;
+    @Basic
+    private String hashedPassword;
 
     // Add listItems through this list.
     @OneToMany(mappedBy = "logonUserEntity", cascade = CascadeType.ALL, orphanRemoval = true)
@@ -68,5 +70,13 @@ public class LogonUserEntity {
 
     public void setLists(List<ListEntity> lists) {
         this.lists = lists;
+    }
+
+    public String getHashedPassword() {
+        return hashedPassword;
+    }
+
+    public void setHashedPassword(String hashedPassword) {
+        this.hashedPassword = hashedPassword;
     }
 }

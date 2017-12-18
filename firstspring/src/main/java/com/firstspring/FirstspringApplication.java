@@ -3,6 +3,7 @@ package com.firstspring;
 import com.entity.ListEntity;
 import com.entity.ListItemEntity;
 import com.entity.LogonUserEntity;
+import org.mindrot.jbcrypt.BCrypt;
 import org.springframework.beans.factory.annotation.Autowired;
 import org.springframework.boot.CommandLineRunner;
 import org.springframework.boot.SpringApplication;
@@ -31,6 +32,9 @@ public class FirstspringApplication {
 	public CommandLineRunner demo() {
 		return (args) -> {
             LogonUserEntity logonUserEntity = new LogonUserEntity("Rico Apon");
+            // Add password to the logonUser.
+            logonUserEntity.setHashedPassword(BCrypt.hashpw("password", BCrypt.gensalt()));
+
             ListEntity list = new ListEntity("My first list");
             list.setSizeChoiceList(Integer.valueOf(2));
             list.setHasStartedAlgorithm(Boolean.TRUE);

@@ -5,8 +5,12 @@ import com.entity.ListItemEntity;
 import com.entity.LogonUserEntity;
 import com.firstspring.ListRepository;
 import com.firstspring.LogonUserRepository;
+import org.hibernate.exception.ConstraintViolationException;
 import org.springframework.beans.factory.annotation.Autowired;
+import org.springframework.dao.DataIntegrityViolationException;
 import org.springframework.web.bind.annotation.*;
+
+import java.io.Console;
 
 @RestController
 public class ListController {
@@ -31,6 +35,14 @@ public class ListController {
     public String addList(@RequestBody ListEntity listEntity,
                           @RequestParam("logonUserId") Integer logonUserId) {
         listEntity.setLogonUserEntity(logonUserRepository.findOne(logonUserId));
+        try {
+            listRepository.save(listEntity);
+        } catch (DataIntegrityViolationException e) {
+            if (e.getCause() instanceof ConstraintViolationException) {
+                System.out.println(((ConstraintViolationException) e.getCause()).getSQLException().getMessage());
+            }
+            return null;
+        }
 
         // Must set a value for hasStartedAlgorithm
         if (listEntity.getHasStartedAlgorithm() == null) {
@@ -38,7 +50,7 @@ public class ListController {
             listEntity.setHasStartedAlgorithm(false);
         }
 
-        listRepository.save(listEntity);
+
         return "Saved the list";
     }
 

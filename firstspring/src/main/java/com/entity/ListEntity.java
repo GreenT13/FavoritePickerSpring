@@ -13,11 +13,11 @@ public class ListEntity {
     @Id
     @GeneratedValue(strategy=GenerationType.AUTO)
     private Integer id;
-    @Basic
+    @Column(nullable=false, unique=true)
     private String externalIdentifier;
-    @Basic
+    @Column(nullable=false)
     private Boolean hasStartedAlgorithm = false;
-    @Basic
+    @Column(nullable=false)
     private Integer sizeChoiceList;
 
     // Add listItems through this list.

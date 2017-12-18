@@ -2,3 +2,4 @@
 <ul>
   <li *ngFor="let list of lists"><a [routerLink]="[list.id]">{{ list.externalIdentifier }}</a> ({{ list.hasStartedAlgorithm }})</li>
 </ul>
+<router-outlet></router-outlet>

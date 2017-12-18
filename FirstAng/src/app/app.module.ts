@@ -12,8 +12,11 @@ import { MaintainListComponent } from './lists/maintain-list/maintain-list.compo
 import { ProcessComponent } from './lists/maintain-list/process/process.component';
 import { FinishedComponent } from './lists/maintain-list/finished/finished.component';
 import { ListService } from './services/listservice.service';
-import {AlgorithmService} from './services/algorithm.service';
+import { AlgorithmService} from './services/algorithm.service';
 import { AddListComponent } from './lists/add-list/add-list.component';
+import { HttpClient } from './services/httpclient.service';
+import { LoginComponent } from './login/login.component';
+import {AuthGuardService} from './routes/auth-guard.service';
 
 
 @NgModule({
@@ -24,7 +27,8 @@ import { AddListComponent } from './lists/add-list/add-list.component';
     MaintainListComponent,
     ProcessComponent,
     FinishedComponent,
-    AddListComponent
+    AddListComponent,
+    LoginComponent
   ],
   imports: [
     BrowserModule,
@@ -33,7 +37,7 @@ import { AddListComponent } from './lists/add-list/add-list.component';
     CommonModule,
     AppRoutingModule
   ],
-  providers: [ListService, AlgorithmService],
+  providers: [ListService, AlgorithmService, HttpClient, AuthGuardService],
   bootstrap: [AppComponent]
 })
 export class AppModule { }

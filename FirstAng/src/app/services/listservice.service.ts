@@ -1,11 +1,12 @@
 import {Injectable} from '@angular/core';
-import {Http, Response} from '@angular/http';
+import {Response} from '@angular/http';
 import 'rxjs/add/operator/map';
 import {List} from '../model/list.model';
+import {HttpClient} from './httpclient.service';
 
 @Injectable()
 export class ListService {
-  constructor(private http: Http) {}
+  constructor(private http: HttpClient) {}
   retrieveLists() {
     // Make get-request to retrieve the lists.
     return this.http.get('/api/lists?logonUserId=1')

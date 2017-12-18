@@ -1,11 +1,12 @@
 import {Injectable} from '@angular/core';
-import {Http, Response} from '@angular/http';
+import {Response} from '@angular/http';
 import 'rxjs/add/operator/map';
 import {Choice} from '../model/choice.model';
+import {HttpClient} from './httpclient.service';
 
 @Injectable()
 export class AlgorithmService {
-  constructor(private http: Http) {}
+  constructor(private http: HttpClient) {}
 
   getChoice(listId: number) {
     // Make get-request to retrieve the lists.
